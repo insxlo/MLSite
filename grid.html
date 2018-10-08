@@ -213,7 +213,10 @@ img{
     $(window).load(function(){
       $('img').on('click', function(){
         var src=$(this).attr('src');
-        $("#model-img").attr('src',src);
+        var regex = /\d+/g;
+        var number = src.match(regex);
+        var txt = src.replace(number, number+'-open');
+        $("#model-img").attr('src',txt);
         $("#teste").modal('show');
       });
     });
